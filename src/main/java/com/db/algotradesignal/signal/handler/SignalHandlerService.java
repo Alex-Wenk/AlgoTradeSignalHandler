@@ -31,6 +31,7 @@ public class SignalHandlerService {
 
         if(maybeAlgoConfigurationForSignal.isPresent()) {
             log.info("Found algo configuration for signal [%s]".formatted(signalId));
+            maybeAlgoConfigurationForSignal.get().configureAlgo(algo);
         } else {
             log.info("Did not find algo configuration for signal [%s]".formatted(signalId));
             algo.cancelTrades();
