@@ -1,6 +1,7 @@
 package com.db.algotradesignal.signal.handler;
 
 import com.db.algotradesignal.algo.Algo;
+import com.db.algotradesignal.algo.AlgoFactory;
 import com.db.algotradesignal.signal.configuration.AlgoConfiguration;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
 import com.db.algotradesignal.signal.configuration.AlgoConfigurationService;
@@ -14,8 +15,10 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class SignalHandlerService {
+
     private static final Logger log = LoggerFactory.getLogger(SignalHandlerService.class);
 
+    private final AlgoFactory algoFactory;
     private final AlgoConfigurationService algoConfigurationService;
 
     public void handleSignal(int signalId) {
@@ -24,7 +27,7 @@ public class SignalHandlerService {
         Optional<AlgoConfiguration> maybeAlgoConfigurationForSignal
                 = algoConfigurationService.getAlgoConfigurationForSignal(signalId);
 
-        Algo algo = new Algo();
+        Algo algo = algoFactory.getAlgo();
 
         if(maybeAlgoConfigurationForSignal.isPresent()) {
             log.info("Found algo configuration for signal [%s]".formatted(signalId));
