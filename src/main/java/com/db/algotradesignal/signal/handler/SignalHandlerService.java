@@ -1,5 +1,6 @@
 package com.db.algotradesignal.signal.handler;
 
+import com.db.algotradesignal.algo.Algo;
 import com.db.algotradesignal.signal.configuration.AlgoConfiguration;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
 import com.db.algotradesignal.signal.configuration.AlgoConfigurationService;
@@ -23,11 +24,16 @@ public class SignalHandlerService {
         Optional<AlgoConfiguration> maybeAlgoConfigurationForSignal
                 = algoConfigurationService.getAlgoConfigurationForSignal(signalId);
 
+        Algo algo = new Algo();
+
         if(maybeAlgoConfigurationForSignal.isPresent()) {
             log.info("Found algo configuration for signal [%s]".formatted(signalId));
         } else {
             log.info("Did not find algo configuration for signal [%s]".formatted(signalId));
+            algo.cancelTrades();
         }
+
+        algo.doAlgo();
     }
 
 }
