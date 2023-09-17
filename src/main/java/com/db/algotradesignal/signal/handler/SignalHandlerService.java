@@ -1,11 +1,10 @@
-package com.db.algotradesignal.handler;
+package com.db.algotradesignal.signal.handler;
 
+import com.db.algotradesignal.signal.configuration.AlgoConfigurationRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

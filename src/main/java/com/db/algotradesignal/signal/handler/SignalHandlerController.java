@@ -1,4 +1,4 @@
-package com.db.algotradesignal.handler;
+package com.db.algotradesignal.signal.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
