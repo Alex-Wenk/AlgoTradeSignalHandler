@@ -3,7 +3,7 @@ Simple Spring Boot HTTP trading algo signal handler.
 
 1. Receives signals at ``/signal/{signalId}``. 
 2. Retrieves the algo configuration for that signal from an in memory cache backed by a mySql database.
-3. Configures a library provided Algo class with the configuration
+3. Configures a library provided Algo according to the signal specification.
 4. Executes the Algo
 
 
