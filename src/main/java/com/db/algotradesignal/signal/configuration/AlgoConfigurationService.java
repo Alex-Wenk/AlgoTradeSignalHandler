@@ -13,7 +13,7 @@ public class AlgoConfigurationService {
 
     private final AlgoConfigurationRepository algoConfigurationRepository;
 
-    public Optional<AlgoConfigurationEntity> getAlgoConfigurationForSignal(int signalId) {
-        return algoConfigurationRepository.findBySignalId(signalId);
+    public Optional<AlgoConfiguration> getAlgoConfigurationForSignal(int signalId) {
+        return algoConfigurationRepository.findBySignalId(signalId).map(AlgoConfiguration::fromEntity);
     }
 }

@@ -1,5 +1,6 @@
 package com.db.algotradesignal.signal.handler;
 
+import com.db.algotradesignal.signal.configuration.AlgoConfiguration;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
 import com.db.algotradesignal.signal.configuration.AlgoConfigurationService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class SignalHandlerService {
     public void handleSignal(int signalId) {
         log.info("Signal [%s] received.".formatted(signalId));
 
-        Optional<AlgoConfigurationEntity> maybeAlgoConfigurationForSignal
+        Optional<AlgoConfiguration> maybeAlgoConfigurationForSignal
                 = algoConfigurationService.getAlgoConfigurationForSignal(signalId);
 
         if(maybeAlgoConfigurationForSignal.isPresent()) {
