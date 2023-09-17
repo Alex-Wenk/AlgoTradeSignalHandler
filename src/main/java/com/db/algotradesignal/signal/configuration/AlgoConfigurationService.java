@@ -1,5 +1,6 @@
 package com.db.algotradesignal.signal.configuration;
 
+import com.db.algotradesignal.cache.Cache;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -11,12 +12,19 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class AlgoConfigurationService {
+public class AlgoConfigurationService implements Cache {
     private static final Logger log = LoggerFactory.getLogger(AlgoConfigurationService.class);
 
 
     private final AlgoConfigurationRepository algoConfigurationRepository;
     private final HashMap<Integer, AlgoConfiguration> algoConfigBySignalId = new HashMap<>();
+
+    @Override
+    public void initialiseCache() {
+        algoConfigurationRepository.findAll().stream()
+                .map(AlgoConfiguration::fromEntity)
+                .forEach(this::cacheAlgoConfiguration);
+    }
 
     public Optional<AlgoConfiguration> getAlgoConfigurationForSignal(int signalId) {
         return Optional.ofNullable(algoConfigBySignalId.get(signalId))
@@ -36,4 +44,6 @@ public class AlgoConfigurationService {
         log.info("Caching configuration for signal [%s]".formatted(configuration.getSignalId()));
         algoConfigBySignalId.put(configuration.getSignalId(), configuration);
     }
+
+
 }
