@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    password: secret
+    url: jdbc:mysql://localhost:3309/algotradesignal
+    username: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: false

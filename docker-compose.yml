@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  database:
+    image: mysql
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret 
+      MYSQL_DATABASE: algotradesignal
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: secret
