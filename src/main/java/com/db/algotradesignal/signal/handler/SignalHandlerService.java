@@ -22,7 +22,7 @@ public class SignalHandlerService {
     private final AlgoConfigurationService algoConfigurationService;
 
     public void handleSignal(int signalId) {
-        log.info("Signal [%s] received.".formatted(signalId));
+        log.debug("Signal [%s] received.".formatted(signalId));
 
         Optional<AlgoConfiguration> maybeAlgoConfigurationForSignal
                 = algoConfigurationService.getAlgoConfigurationForSignal(signalId);
@@ -30,10 +30,10 @@ public class SignalHandlerService {
         Algo algo = algoFactory.getAlgo();
 
         if(maybeAlgoConfigurationForSignal.isPresent()) {
-            log.info("Found algo configuration for signal [%s]".formatted(signalId));
+            log.debug("Found algo configuration for signal [%s]".formatted(signalId));
             maybeAlgoConfigurationForSignal.get().configureAlgo(algo);
         } else {
-            log.info("Did not find algo configuration for signal [%s]".formatted(signalId));
+            log.debug("Did not find algo configuration for signal [%s]".formatted(signalId));
             algo.cancelTrades();
         }
 
