@@ -1,7 +1,6 @@
-package com.db.algotradesignal.signal.configuration;
+package com.db.algotradesignal.signal.configuration.persistence;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

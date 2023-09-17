@@ -1,7 +1,7 @@
-package com.db.algotradesignal.signal.configuration;
+package com.db.algotradesignal.signal.configuration.persistence;
 
+import com.db.algotradesignal.signal.configuration.AlgoStepType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

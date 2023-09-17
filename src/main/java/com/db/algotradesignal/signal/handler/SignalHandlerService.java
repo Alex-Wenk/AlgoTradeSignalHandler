@@ -1,7 +1,6 @@
 package com.db.algotradesignal.signal.handler;
 
-import com.db.algotradesignal.signal.configuration.AlgoConfigurationEntity;
-import com.db.algotradesignal.signal.configuration.AlgoConfigurationRepository;
+import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
 import com.db.algotradesignal.signal.configuration.AlgoConfigurationService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;

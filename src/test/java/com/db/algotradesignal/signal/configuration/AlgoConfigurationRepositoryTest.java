@@ -1,5 +1,9 @@
 package com.db.algotradesignal.signal.configuration;
 
+import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
+import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationRepository;
+import com.db.algotradesignal.signal.configuration.persistence.AlgoParamEntity;
+import com.db.algotradesignal.signal.configuration.persistence.AlgoStepEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
