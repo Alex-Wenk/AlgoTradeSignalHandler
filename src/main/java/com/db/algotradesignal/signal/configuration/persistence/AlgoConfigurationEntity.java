@@ -1,6 +1,7 @@
 package com.db.algotradesignal.signal.configuration.persistence;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Table(name = "AlgoConfig")
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class AlgoConfigurationEntity {
 
     @Id

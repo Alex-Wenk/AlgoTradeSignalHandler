@@ -1,5 +1,6 @@
-package com.db.algotradesignal.signal.configuration;
+package com.db.algotradesignal.signal.configuration.persistence;
 
+import com.db.algotradesignal.signal.configuration.AlgoStepType;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationRepository;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoParamEntity;

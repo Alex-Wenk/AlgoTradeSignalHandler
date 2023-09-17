@@ -2,6 +2,7 @@ package com.db.algotradesignal.signal.configuration.persistence;
 
 import com.db.algotradesignal.signal.configuration.AlgoStepType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
                         columnNames = {"signalId", "sequenceIndex"})}
 )
 @NoArgsConstructor
+@AllArgsConstructor
 public class AlgoStepEntity {
 
     @ManyToOne

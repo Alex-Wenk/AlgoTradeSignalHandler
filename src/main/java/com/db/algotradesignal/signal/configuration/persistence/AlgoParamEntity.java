@@ -1,6 +1,7 @@
 package com.db.algotradesignal.signal.configuration.persistence;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
                         columnNames = {"signalId", "paramId"})}
 )
 @NoArgsConstructor
+@AllArgsConstructor
 public class AlgoParamEntity {
 
     @ManyToOne

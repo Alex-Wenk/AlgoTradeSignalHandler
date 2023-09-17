@@ -1,5 +1,6 @@
 package com.db.algotradesignal.signal.configuration;
 
+import com.db.algotradesignal.algo.Algo;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoConfigurationEntity;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoParamEntity;
 import com.db.algotradesignal.signal.configuration.persistence.AlgoStepEntity;
@@ -39,5 +40,22 @@ public class AlgoConfiguration {
         return configuration;
     }
 
+    public void configureAlgo(Algo algo) {
+        for (AlgoStepType step : algoSteps) {
+            switch (step) {
+                case REVERSE -> algo.reverse();
+                case SET_UP -> algo.setUp();
+                case SET_ALGO_PARAM -> setAlgoParams(algo);
+                case PERFORM_CALC -> algo.performCalc();
+                case SUBMIT_TO_MARKET -> algo.submitToMarket();
+            }
+        }
+    }
+
+    private void setAlgoParams(Algo algo) {
+        for (AlgoParamValue algoParamValue : algoParamValues) {
+            algo.setAlgoParam(algoParamValue.param(), algoParamValue.value());
+        }
+    }
 
 }
